@@ -1,4 +1,8 @@
-const euroTeam = {
+type EuroTeam = {
+  [key: string]: { [key: string]: string }[];
+};
+
+const euroTeam: EuroTeam = {
   A조: [
     { GER: '독일' },
     { SCO: '스코틀랜드' },

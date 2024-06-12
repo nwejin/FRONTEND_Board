@@ -109,31 +109,41 @@ const ContentContainer = styled.div`
   justify-content: space-between;
   position: relative;
   border-bottom: 1px solid ${_Colors._Gray_4};
-  .subject {
-    border-radius: 0.5rem;
-    padding: 0.2rem 0.7rem;
-    background-color: ${_Colors._Gray_4};
-    span {
-      color: ${_Colors._Gray_0};
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    .subject {
+      border-radius: 0.5rem;
+      padding: 0.2rem 0.7rem;
+      background-color: ${_Colors._Gray_4};
+      span {
+        color: ${_Colors._Gray_0};
+      }
     }
-  }
-  .title {
-    /* background-color: pink; */
-    width: 15%;
-    position: absolute;
-    left: 10%;
-    border-right: 0.2rem solid ${_Colors._Gray_4};
-    p {
-      font-weight: 700;
+    .title {
+      /* background-color: pink; */
+      width: 15%;
+      position: absolute;
+      left: 10%;
+      border-right: 0.2rem solid ${_Colors._Gray_4};
+      p {
+        font-weight: 700;
+      }
     }
-  }
-  .desc {
-    /* background-color: red; */
-    width: 50%;
-    position: absolute;
-    left: 30%;
+    .desc {
+      /* background-color: red; */
+      width: 50%;
+      position: absolute;
+      left: 30%;
+    }
   }
   .like {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
     span {
       color: ${_Colors._Gray_4};
     }

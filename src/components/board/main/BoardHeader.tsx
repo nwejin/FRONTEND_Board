@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { BoardStyle } from '../../../styles/board';
-import BoardModal from '../modal/BoardModal';
+import BoardModal from '../../../pages/board/BoardModal';
 
 export default function BoardHeader() {
-  const [modal, setModal] = useState<Boolean>(true);
+  const [modal, setModal] = useState<Boolean>(false);
 
   const openModal = () => {
     setModal(true);
