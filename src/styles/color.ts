@@ -12,6 +12,8 @@ const _Colors = {
   _Gray_8: '#343A40',
   _Black: '#212529',
   _white: '#ffffff',
+
+  // 유로 2024 색
   _blue: '#004ea0',
   _green: '#00a85d',
   _yellow: '#ffd600',

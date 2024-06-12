@@ -3,6 +3,7 @@ import _Colors from './color';
 
 const Global = createGlobalStyle`
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
 * {
     margin: 0px;
     padding: 0px;
@@ -12,16 +13,19 @@ const Global = createGlobalStyle`
     text-decoration: none;
     list-style: none;
 
-    color: ${_Colors._Gray_0};
+    color: ${_Colors._dark};
     font-family: 'Pretendard';
 }
 
 body {
     background-color: ${_Colors._white};
-    background-size: 100%;
     height: 100%;
     overflow: hidden;
 }
+
+.material-symbols-outlined {
+        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 18;
+      }
 `;
 
 export default Global;
