@@ -22,9 +22,13 @@ export default function AddComment({ id }: { id: string | undefined }) {
         score: score,
         content: isComment,
       };
-      console.log(commentData);
-      const response = await axios.patch(`http://localhost:3001/boards/${id}`, {
-        comments: commentData,
+
+      const response = await axios.get(`http://localhost:3001/boards/${id}`);
+      const existingComments = response.data.comments || [];
+
+      // console.log(commentData);
+      await axios.patch(`http://localhost:3001/boards/${id}`, {
+        comments: [...existingComments, commentData],
       });
       console.log('댓글 업데이트 >', response.data);
       window.location.reload();

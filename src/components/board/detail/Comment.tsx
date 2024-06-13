@@ -19,21 +19,20 @@ interface Board {
   content: string;
   date: string;
   liked: boolean;
-  comments: CommentData;
+  comments: CommentData[];
 }
 
 export default function Comment({ id }: { id: string | undefined }) {
   const starArray = [0, 1, 2, 3, 4];
-  const [commentData, setCommentData] = useState<CommentData | null>(null); // 댓글 데이터 상태
+  const [comments, setComments] = useState<CommentData[]>([]);
 
   useEffect(() => {
-    // 게시판 데이터를 가져오는 비동기 함수
     const fetchBoard = async () => {
       try {
         const response = await axios.get<Board>(
           `http://localhost:3001/boards/${id}`
         );
-        setCommentData(response.data.comments);
+        setComments(response.data.comments);
       } catch (error) {
         console.error('게시판 데이터 불러오기 실패:', error);
       }
@@ -46,20 +45,22 @@ export default function Comment({ id }: { id: string | undefined }) {
 
   return (
     <DetailStyle.CommentBox>
-      <div className="scoreBox">
-        <p className="desc">별점</p>
-        <div className="stars">
-          {starArray.map((star, index) => (
-            <FaStar
-              key={index}
-              size={14}
-              className={index < (commentData?.score || 0) ? 'gold' : 'grey'}
-            />
-          ))}
+      {comments.map((comment, index) => (
+        <div key={index} className="scoreBox">
+          <p className="desc">별점</p>
+          <div className="stars">
+            {starArray.map((star, starIndex) => (
+              <FaStar
+                key={starIndex}
+                size={14}
+                className={starIndex < comment.score ? 'gold' : 'grey'}
+              />
+            ))}
+          </div>
+          <p className="desc">한줄평</p>
+          <p className="content">{comment.content}</p>
         </div>
-        <p className="desc">한줄평</p>
-        <p className="content">{commentData?.content}</p>
-      </div>
+      ))}
     </DetailStyle.CommentBox>
   );
 }

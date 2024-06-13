@@ -27,7 +27,9 @@ export default function BoardList({ currentPosts }: BoardListProps) {
   return view ? (
     <BoardStyle.ListContainer>
       {currentPosts.length === 0 ? (
-        <p>게시글을 찾을 수 없습니다</p>
+        <div className="notFound">
+          <p className="notFoundText">게시글을 찾을 수 없습니다</p>
+        </div>
       ) : (
         currentPosts.map((board: Board) => (
           <BoardContent key={board.id} board={board} />
@@ -36,9 +38,15 @@ export default function BoardList({ currentPosts }: BoardListProps) {
     </BoardStyle.ListContainer>
   ) : (
     <BoardStyle.GridContainer>
-      {currentPosts.map((board: Board) => (
-        <BoardContent key={board.id} board={board} />
-      ))}
+      {currentPosts.length === 0 ? (
+        <div className="notFound">
+          <p className="notFoundText">게시글을 찾을 수 없습니다</p>
+        </div>
+      ) : (
+        currentPosts.map((board: Board) => (
+          <BoardContent key={board.id} board={board} />
+        ))
+      )}
     </BoardStyle.GridContainer>
   );
 }
