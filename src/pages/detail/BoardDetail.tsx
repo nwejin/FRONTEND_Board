@@ -33,9 +33,9 @@ export default function BoardDetail() {
   // console.log(id);
   const [boards, setBoards] = useState<Board | undefined>();
 
-  // const { liked, setLiked } = useBoardStore();
+  const { liked: boardLiked, setLiked: setBoardLiked } = useBoardStore();
 
-  const [isLiked, setisLiked] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
     const getBoard = async () => {
@@ -43,6 +43,7 @@ export default function BoardDetail() {
         const response = await axios.get(`http://localhost:3001/boards/${id}`);
         console.log(response.data);
         setBoards(response.data);
+        setIsLiked(response.data.liked);
       } catch (err) {
         console.log('상세 페이지 불러오기 > ', err);
       }
@@ -50,19 +51,19 @@ export default function BoardDetail() {
     getBoard();
   }, [id]);
 
-  useEffect(() => {
-    const patchData = async () => {
-      try {
-        await axios.patch(`http://localhost:3001/boards/${id}`, {
-          liked: true,
-        });
-        console.log('좋아요 상태가 업데이트 되었습니다.');
-      } catch (error) {
-        console.log('좋아요 오류 > ', error);
-      }
-    };
-    patchData();
-  }, [isLiked, id]);
+  const toggleLike = async () => {
+    try {
+      await axios.patch(`http://localhost:3001/boards/${id}`, {
+        liked: !isLiked,
+      });
+      setBoardLiked(!boardLiked); // 좋아요
+      setIsLiked((prevIsLiked) => !prevIsLiked);
+      console.log('좋아요 상태가 업데이트 되었습니다.');
+      window.location.reload();
+    } catch (error) {
+      console.log('좋아요 오류 > ', error);
+    }
+  };
 
   const deleteBoard = async () => {
     try {
@@ -142,12 +143,7 @@ export default function BoardDetail() {
           </div>
           <div className="subContent">
             <div className="likeBox">
-              <button
-                onClick={() => {
-                  setisLiked(!isLiked);
-                  // console.log(!isLiked);
-                }}
-              >
+              <button onClick={toggleLike}>
                 <FaHeart
                   className={boards?.liked ? 'liked' : 'default'}
                   size={18}
