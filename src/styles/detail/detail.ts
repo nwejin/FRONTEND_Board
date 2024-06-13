@@ -42,6 +42,7 @@ const DetailContent = styled.div`
   padding: 1rem 0;
   border-bottom: 1px solid ${_Colors._Gray_4};
   .content {
+    margin-top: 1.5rem;
     /* background-color: red; */
     height: 70%;
     padding: 0 1rem;
@@ -64,7 +65,32 @@ const DetailContent = styled.div`
 `;
 
 const AddComment = styled.div`
-  background-color: pink;
+  padding: 1rem 1rem;
+  border-bottom: 1px solid ${_Colors._Gray_4};
+  .scoreBox {
+    display: flex;
+    align-items: center;
+    p {
+      color: ${_Colors._blue};
+      font-size: 0.8rem;
+      margin-right: 1rem;
+    }
+    input {
+      width: 50%;
+      border: 1px solid ${_Colors._Gray_4};
+      padding: 0.1rem 0.5rem;
+      border-radius: 0.2rem;
+    }
+  }
+  .stars {
+    margin-right: 1rem;
+  }
+  .gold {
+    fill: ${_Colors._yellow};
+  }
+  .grey {
+    fill: ${_Colors._Gray_4};
+  }
 `;
 
 export const DetailStyle = {

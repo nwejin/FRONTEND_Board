@@ -1,0 +1,95 @@
+{
+  "boards": [
+    {
+      "id": "3",
+      "subject": "자유",
+      "group": "C조",
+      "team": "독일",
+      "title": "이번 우승자는 누구일까요?",
+      "content": "독일 예상합니다",
+      "date": "6/13 16:00",
+      "liked": true
+    },
+    {
+      "id": "4",
+      "subject": "자유",
+      "group": "D조",
+      "team": "독일",
+      "title": "이번 우승자는 누구일까요?",
+      "content": "독일 예상합니다",
+      "date": "6/13 16:00",
+      "liked": true
+    },
+    {
+      "id": "5",
+      "subject": "자유",
+      "group": "A조",
+      "team": "독일",
+      "title": "이번 우승자는 누구일까요?",
+      "content": "독일 예상합니다",
+      "date": "6/13 16:00",
+      "liked": true
+    },
+    {
+      "id": "a00b",
+      "subject": "경기후기",
+      "group": "A조",
+      "team": "스코틀랜드",
+      "title": "123",
+      "content": "123",
+      "date": "6/13 22:55",
+      "liked": false
+    },
+    {
+      "id": "3597",
+      "subject": "자유",
+      "group": "A조",
+      "team": "헝가리",
+      "title": "123",
+      "content": "123",
+      "date": "6/13 23:33",
+      "liked": false
+    },
+    {
+      "id": "4276",
+      "subject": "자유",
+      "group": "A조",
+      "team": "스코틀랜드",
+      "title": "asd",
+      "content": "asd",
+      "date": "6/13 23:54",
+      "liked": false
+    },
+    {
+      "id": "ec5c",
+      "subject": "자유",
+      "group": "A조",
+      "team": "스코틀랜드",
+      "title": "asd",
+      "content": "asd",
+      "date": "6/13 23:55",
+      "liked": false
+    },
+
+    {
+      "id": "afbe",
+      "subject": "경기후기",
+      "group": "A조",
+      "team": "스코틀랜드",
+      "title": "asd",
+      "content": "asd",
+      "date": "6/14 0:16",
+      "liked": false
+    },
+    {
+      "id": "267b",
+      "subject": "경기후기",
+      "group": "A조",
+      "team": "헝가리",
+      "title": ";;",
+      "content": ";;",
+      "date": "6/14 1:3",
+      "liked": false
+    }
+  ]
+}

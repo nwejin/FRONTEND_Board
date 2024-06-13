@@ -2,25 +2,26 @@ import { BoardStyle } from '../../../styles/main/board';
 
 import BoardContent from './BoardContent';
 
-interface BoardListProps {
-  currentPage: number;
-  postsPerPage: number;
+interface Board {
+  id: string;
+  subject: string;
+  group: string;
+  team: string;
+  title: string;
+  content: string;
+  date: string;
+  liked: boolean;
 }
 
-export default function BoardList({
-  currentPage,
-  postsPerPage,
-}: BoardListProps) {
-  const test = Array.from({ length: 80 }, (_, i) => i + 1);
-  console.log(test);
+interface BoardListProps {
+  currentPosts: Board[]; // Board 배열 타입
+}
 
-  const indexOfLastPost = (currentPage + 1) * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = test.slice(indexOfFirstPost, indexOfLastPost);
+export default function BoardList({ currentPosts }: BoardListProps) {
   return (
     <BoardStyle.ListContainer>
-      {currentPosts.map((test, index) => (
-        <BoardContent key={index} test={test} />
+      {currentPosts.map((board: Board) => (
+        <BoardContent key={board.id} board={board} />
       ))}
     </BoardStyle.ListContainer>
   );
