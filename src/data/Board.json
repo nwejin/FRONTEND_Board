@@ -164,6 +164,10 @@
         {
           "score": 5,
           "content": "굿"
+        },
+        {
+          "score": 0,
+          "content": "zz"
         }
       ]
     },
@@ -175,7 +179,7 @@
       "title": "레반 나옴?",
       "content": "레반 나왔음?",
       "date": "6/14 7:44",
-      "liked": false,
+      "liked": true,
       "comments": [
         {
           "score": 1,
@@ -354,8 +358,17 @@
       "title": "독일 4회 우승 가자 ",
       "content": "가보자~~",
       "date": "6/12 14:02",
-      "liked": false,
-      "comments": []
+      "liked": true,
+      "comments": [
+        {
+          "score": 0,
+          "content": "zz"
+        },
+        {
+          "score": 5,
+          "content": ""
+        }
+      ]
     },
     {
       "id": "5119",
