@@ -29,11 +29,13 @@ export default function BoardContent({ board }: { board: Board }) {
         <div className="title">
           <p>{board.title}</p>
         </div>
-        <div className="desc">
-          <p>{board.content}</p>
-        </div>
-        <div className="date">
-          <p>{board.date}</p>
+        <div className="subBox">
+          <div className="desc">
+            <p>{board.content}</p>
+          </div>
+          <div className="date">
+            <p>{board.date}</p>
+          </div>
         </div>
       </Link>
     </BoardStyle.ListContentContainer>
