@@ -1,23 +1,33 @@
 import { BoardStyle } from '../../../styles/main/board';
 import { Link } from 'react-router-dom';
 
-export default function BoardContent({ test }: { test: number }) {
+interface Board {
+  id: string;
+  subject: string;
+  group: string;
+  team: string;
+  title: string;
+  content: string;
+  date: string;
+  liked: boolean;
+}
+export default function BoardContent({ board }: { board: Board }) {
   return (
     <BoardStyle.ContentContainer>
-      <Link to={`/1`}>
+      <Link to={`/${board.id}`}>
         <div className="subject">
-          <span>{test}</span>
+          <span>{board.subject}</span>
         </div>
         <div className="title">
-          <p>제목</p>
+          <p>{board.title}</p>
         </div>
         <div className="desc">
-          <p>내용</p>
+          <p>{board.content}</p>
+        </div>
+        <div className="date">
+          <p>{board.date}</p>
         </div>
       </Link>
-      <button className="like">
-        <span className="material-symbols-outlined">favorite</span>
-      </button>
     </BoardStyle.ContentContainer>
   );
 }

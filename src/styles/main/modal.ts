@@ -85,18 +85,24 @@ const Teambox = styled.div`
   align-items: center;
   justify-content: center;
   select {
-    background: none;
     padding: 0.3rem 1.73rem;
     margin: 0 1rem;
     cursor: pointer;
-    color: ${_Colors._Gray_5};
-    border: 1px solid ${_Colors._Gray_5};
     border-radius: 0.5rem;
   }
   select:hover {
-    color: ${_Colors._white};
+    color: ${_Colors._Gray_0};
     background-color: ${_Colors._blue} !important;
     border-radius: 0.5rem;
+  }
+  .active {
+    color: ${_Colors._Gray_0};
+    background-color: ${_Colors._blue};
+  }
+  .default {
+    background: none;
+    color: ${_Colors._Gray_5};
+    border: 1px solid ${_Colors._Gray_5};
   }
 `;
 
@@ -131,6 +137,13 @@ const ContentBox = styled.div`
 const Labeltitle = styled.label`
   padding: 0.5rem 5rem 0;
   font-weight: 700;
+
+  span {
+    color: ${_Colors._blue};
+    font-size: small;
+    font-weight: 400;
+    margin-left: 0.5rem;
+  }
 `;
 
 const BtnBox = styled.div`

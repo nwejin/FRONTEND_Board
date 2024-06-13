@@ -30,13 +30,18 @@ const BoardHeader = styled.div`
     display: flex;
     width: auto;
     justify-content: space-between;
-    & > li {
+    .default {
       margin-right: 1rem;
       color: ${_Colors._Gray_6};
-      &:hover {
-        font-weight: 700;
-        color: ${_Colors._blue};
-      }
+    }
+    .default:hover {
+      font-weight: 700;
+      color: ${_Colors._blue};
+    }
+    .active {
+      margin-right: 1rem;
+      font-weight: 700;
+      color: ${_Colors._blue};
     }
   }
   & > input {
@@ -132,8 +137,16 @@ const ContentContainer = styled.div`
       /* background-color: pink; */
       width: 15%;
       position: absolute;
-      left: 10%;
+      left: 15%;
       border-right: 0.2rem solid ${_Colors._Gray_4};
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      white-space: normal;
+      line-height: 1.5;
       p {
         font-weight: 700;
       }
@@ -142,16 +155,21 @@ const ContentContainer = styled.div`
       /* background-color: red; */
       width: 50%;
       position: absolute;
-      left: 30%;
+      left: 35%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      white-space: normal;
+      line-height: 1.5;
     }
-  }
-  .like {
-    background: none;
-    border: none;
-    display: flex;
-    align-items: center;
-    & > span {
-      color: ${_Colors._Gray_4};
+    .date {
+      p {
+        font-size: 0.9rem;
+        color: ${_Colors._Gray_4};
+      }
     }
   }
 `;

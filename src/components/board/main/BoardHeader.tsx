@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { BoardStyle } from '../../../styles/main/board';
 import BoardModal from '../../../pages/board/BoardModal';
 import { IoIosFootball } from 'react-icons/io';
+import useBoardStore from '../../../store/BoardStore';
 
 export default function BoardHeader() {
   const [modal, setModal] = useState<Boolean>(false);
+  const { setFilter } = useBoardStore();
 
   const openModal = () => {
     setModal(true);
@@ -12,12 +14,49 @@ export default function BoardHeader() {
   const closeModal = () => {
     setModal(false);
   };
+
+  const [checked, setChecked] = useState('전체');
+
+  const contentFilter = (value: string) => {
+    setChecked(value);
+    setFilter(value);
+  };
+
   return (
     <BoardStyle.BoardHeader>
       <ul>
-        <li>자유</li>
-        <li>경기후기</li>
-        <li>선수후기</li>
+        <li
+          onClick={() => {
+            contentFilter('전체');
+          }}
+          className={checked === '전체' ? 'active' : 'default'}
+        >
+          전체
+        </li>
+        <li
+          onClick={() => {
+            contentFilter('자유');
+          }}
+          className={checked === '자유' ? 'active' : 'default'}
+        >
+          자유
+        </li>
+        <li
+          onClick={() => {
+            contentFilter('경기후기');
+          }}
+          className={checked === '경기후기' ? 'active' : 'default'}
+        >
+          경기후기
+        </li>
+        <li
+          onClick={() => {
+            contentFilter('선수후기');
+          }}
+          className={checked === '선수후기' ? 'active' : 'default'}
+        >
+          선수후기
+        </li>
       </ul>
       <input type="text" name="" id="" placeholder="검색어를 입력해주세요" />
       <button onClick={openModal}>
