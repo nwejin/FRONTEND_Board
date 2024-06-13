@@ -21,13 +21,18 @@ interface BoardListProps {
 
 export default function BoardList({ currentPosts }: BoardListProps) {
   const { view } = useBoardStore();
+  console.log(currentPosts);
 
   // console.log('view', view);
   return view ? (
     <BoardStyle.ListContainer>
-      {currentPosts.map((board: Board) => (
-        <BoardContent key={board.id} board={board} />
-      ))}
+      {currentPosts.length === 0 ? (
+        <p>게시글을 찾을 수 없습니다</p>
+      ) : (
+        currentPosts.map((board: Board) => (
+          <BoardContent key={board.id} board={board} />
+        ))
+      )}
     </BoardStyle.ListContainer>
   ) : (
     <BoardStyle.GridContainer>

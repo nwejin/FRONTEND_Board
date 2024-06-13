@@ -6,7 +6,7 @@ import useBoardStore from '../../../store/BoardStore';
 
 export default function BoardHeader() {
   const [modal, setModal] = useState<Boolean>(false);
-  const { filter, setFilter } = useBoardStore();
+  const { filter, setFilter, setSearch } = useBoardStore();
 
   const openModal = () => {
     setModal(true);
@@ -22,6 +22,14 @@ export default function BoardHeader() {
     setFilter(value);
   };
 
+  const [searchValue, setSearchValue] = useState('');
+  // 검색
+  const searchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchValue(value);
+    setSearch(value);
+  };
+
   return (
     <BoardStyle.BoardHeader>
       <ul>
@@ -29,7 +37,7 @@ export default function BoardHeader() {
           onClick={() => {
             contentFilter('전체');
           }}
-          className={filter === '전체' ? 'active' : 'default'}
+          className={filter === '' ? 'active' : 'default'}
         >
           전체
         </li>
@@ -58,7 +66,16 @@ export default function BoardHeader() {
           선수후기
         </li>
       </ul>
-      <input type="text" name="" id="" placeholder="검색어를 입력해주세요" />
+      <input
+        type="text"
+        name=""
+        id=""
+        value={searchValue}
+        placeholder="검색어를 입력해주세요"
+        onChange={(e) => {
+          searchInput(e);
+        }}
+      />
       <button onClick={openModal}>
         <span>게시글 추가</span>
         <IoIosFootball className="icons" />
