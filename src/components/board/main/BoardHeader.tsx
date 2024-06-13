@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { BoardStyle } from '../../../styles/board';
+import { BoardStyle } from '../../../styles/main/board';
 import BoardModal from '../../../pages/board/BoardModal';
+import { IoIosFootball } from 'react-icons/io';
 
 export default function BoardHeader() {
   const [modal, setModal] = useState<Boolean>(false);
@@ -21,6 +22,7 @@ export default function BoardHeader() {
       <input type="text" name="" id="" placeholder="검색어를 입력해주세요" />
       <button onClick={openModal}>
         <span>게시글 추가</span>
+        <IoIosFootball className="icons" />
       </button>
       {modal && <BoardModal open={modal} close={closeModal} />}
     </BoardStyle.BoardHeader>

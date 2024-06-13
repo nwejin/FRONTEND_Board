@@ -1,4 +1,4 @@
-import { BoardStyle } from '../../../styles/board';
+import { BoardStyle } from '../../../styles/main/board';
 
 export default function BoardSort() {
   return (

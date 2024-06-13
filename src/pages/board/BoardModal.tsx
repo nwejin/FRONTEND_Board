@@ -1,4 +1,4 @@
-import { ModalStyle } from '../../styles/modal';
+import { ModalStyle } from '../../styles/main/modal';
 
 import ModalHeader from '../../components/board/modal/ModalHeader';
 import ModalSubject from '../../components/board/modal/inputs/ModalSubject';

@@ -1,31 +1,28 @@
-import { BoardStyle } from '../../../styles/board';
+import React from 'react';
+import ReactPaginate from 'react-paginate';
 
-export default function Pagination() {
+import { BoardStyle } from '../../../styles/main/board';
+
+export default function Pagination({
+  pageCount,
+  onPageChange,
+  currentPage,
+}: any) {
   return (
     <BoardStyle.PaginationContainer>
-      <div>
-        <button>
+      <ReactPaginate
+        previousLabel={
           <span className="material-symbols-outlined">chevron_left</span>
-        </button>
-        <button>
-          <span>1</span>
-        </button>
-        <button>
-          <span>2</span>
-        </button>
-        <button>
-          <span>3</span>
-        </button>
-        <button>
-          <span>4</span>
-        </button>
-        <button>
-          <span>5</span>
-        </button>
-        <button>
+        }
+        nextLabel={
           <span className="material-symbols-outlined">chevron_right</span>
-        </button>
-      </div>
+        }
+        pageCount={pageCount}
+        onPageChange={onPageChange}
+        containerClassName={'pagination'}
+        pageLinkClassName={'pagination__link'}
+        activeLinkClassName={'pagination__link__active'}
+      />
     </BoardStyle.PaginationContainer>
   );
 }

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import _Colors from './color';
+import _Colors from '../common/color';
 
 const Container = styled.div`
   background-color: ${_Colors._Gray_0};
@@ -14,7 +14,8 @@ const InnerContainer = styled.div`
   width: 60%;
   max-width: 60%;
   height: 80%;
-  background-color: ${_Colors._Gray_0};
+  /* background-color: ${_Colors._Gray_0}; */
+  /* background-color: pink; */
 `;
 
 const BoardHeader = styled.div`
@@ -29,8 +30,7 @@ const BoardHeader = styled.div`
     display: flex;
     width: auto;
     justify-content: space-between;
-    li {
-      /* color: ${_Colors._dark}; */
+    & > li {
       margin-right: 1rem;
       color: ${_Colors._Gray_6};
       &:hover {
@@ -54,8 +54,14 @@ const BoardHeader = styled.div`
     padding: 0.5rem 1rem;
     border-radius: 0.2rem;
     border: none;
+    display: flex;
+    align-items: center;
     span {
       color: ${_Colors._Gray_0};
+    }
+    .icons {
+      background-color: ${_Colors._green};
+      fill: ${_Colors._Gray_0};
     }
   }
 `;
@@ -114,7 +120,7 @@ const ContentContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    .subject {
+    & > .subject {
       border-radius: 0.5rem;
       padding: 0.2rem 0.7rem;
       background-color: ${_Colors._Gray_4};
@@ -144,7 +150,7 @@ const ContentContainer = styled.div`
     border: none;
     display: flex;
     align-items: center;
-    span {
+    & > span {
       color: ${_Colors._Gray_4};
     }
   }
@@ -156,23 +162,31 @@ const PaginationContainer = styled.div`
   height: 10%;
   align-items: center;
   justify-content: center;
-  div {
+  .pagination {
     display: flex;
     align-items: center;
     /* background-color: pink; */
+    a {
+      display: flex;
+      align-items: center;
+    }
+    span {
+      /* font-weight: 700; */
+      font-size: 1.2rem;
+    }
   }
-  button {
+  .pagination__link {
     display: flex;
     align-items: center;
     padding: 0rem 1rem;
     background: none;
     border: none;
     height: auto;
-    /* background-color: red; */
-    span {
-      font-weight: 700;
-      font-size: 1rem;
-    }
+    border-radius: 0.5rem;
+  }
+  .pagination__link__active {
+    background-color: ${_Colors._blue};
+    color: ${_Colors._Gray_0};
   }
 `;
 

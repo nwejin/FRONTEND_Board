@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ModalStyle } from '../../../../styles/modal';
+import { ModalStyle } from '../../../../styles/main/modal';
 
 export default function ModalSubject() {
   const [selected, setSelected] = useState('');
