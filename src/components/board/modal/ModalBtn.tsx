@@ -25,6 +25,7 @@ export default function ModalBtn({ isSubmit }: { isSubmit: boolean }) {
       content: content,
       date: formattedDate,
       liked: false,
+      comments: [],
     };
     try {
       await axios.post('http://localhost:3001/boards', data, {

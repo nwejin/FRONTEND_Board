@@ -1,20 +1,36 @@
 import { useState } from 'react';
 import { DetailStyle } from '../../../styles/detail/detail';
-
+import axios from 'axios';
 import { FaStar } from 'react-icons/fa';
 
-export default function AddComment() {
+export default function AddComment({ id }: { id: string | undefined }) {
   const starArray = [0, 1, 2, 3, 4];
 
-  const [score, setScore] = useState([false, false, false, false, false]);
+  const [score, setScore] = useState(0);
 
+  const [isComment, setIsComment] = useState('');
+
+  // 평점
   const starScore = (index: number) => {
-    let star = [...score];
-    for (let i = 0; i < 5; i++) {
-      star[i] = i <= index ? true : false;
+    const selectedScore = index + 1;
+    setScore(selectedScore);
+  };
+
+  const saveComment = async () => {
+    try {
+      const commentData = {
+        score: score,
+        content: isComment,
+      };
+      console.log(commentData);
+      const response = await axios.patch(`http://localhost:3001/boards/${id}`, {
+        comments: commentData,
+      });
+      console.log('댓글 업데이트 >', response.data);
+      window.location.reload();
+    } catch (err) {
+      console.log('데이터 댓글 저장 오류>', err);
     }
-    setScore(star);
-    console.log(score);
   };
 
   return (
@@ -27,12 +43,22 @@ export default function AddComment() {
               key={index}
               size={14}
               onClick={() => starScore(index)}
-              className={score[index] ? 'gold' : 'grey'}
+              className={index < score ? 'gold' : 'grey'}
             />
           ))}
         </div>
         <p> 한줄평을 남겨주세요</p>
-        <input type="text" name="" id="" placeholder="한줄 평을 남겨주세요!" />
+        <input
+          type="text"
+          name=""
+          id=""
+          placeholder="한줄 평을 남겨주세요!"
+          value={isComment}
+          onChange={(e) => {
+            setIsComment(e.target.value);
+          }}
+        />
+        <button onClick={saveComment}>저장</button>
       </div>
     </DetailStyle.AddComment>
   );

@@ -6,11 +6,13 @@ interface BoardStore {
   team: string;
   title: string;
   content: string;
+  liked: boolean;
   setSubject: (value: string) => void;
   setGroup: (value: string) => void;
   setTeam: (value: string) => void;
   setTitle: (value: string) => void;
   setContent: (value: string) => void;
+  setLiked: (value: boolean) => void;
 
   // 필터
   filter: string;
@@ -23,6 +25,10 @@ interface BoardStore {
   // 정렬
   sort: boolean;
   setSort: (value: boolean) => void;
+
+  // 검색
+  search: string;
+  setSearch: (value: string) => void;
 }
 
 const useBoardStore = create<BoardStore>((set) => ({
@@ -35,6 +41,8 @@ const useBoardStore = create<BoardStore>((set) => ({
   filter: '',
   view: true,
   sort: true,
+  search: '',
+  liked: true,
 
   // 저장
   setSubject: (value: string) => set({ subject: value }),
@@ -45,6 +53,8 @@ const useBoardStore = create<BoardStore>((set) => ({
   setFilter: (value: string) => set({ filter: value }),
   setView: (value: boolean) => set({ view: value }),
   setSort: (value: boolean) => set({ sort: value }),
+  setSearch: (value: string) => set({ search: value }),
+  setLiked: (value: boolean) => set({ liked: value }),
 }));
 
 export default useBoardStore;

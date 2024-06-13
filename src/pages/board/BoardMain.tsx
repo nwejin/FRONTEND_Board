@@ -22,10 +22,12 @@ interface Board {
 }
 
 export default function BoardMain() {
-  const { filter, sort } = useBoardStore();
+  const { filter, sort, search } = useBoardStore();
 
   // console.log('filter > ', filter);
   console.log('sort', sort);
+  console.log('search', search);
+
   // 게시글 불러오기
   const [boards, setBoards] = useState<Board[]>([]);
   const [filteredBoards, setFilteredBoards] = useState<Board[]>([]);
@@ -60,24 +62,38 @@ export default function BoardMain() {
 
   useEffect(() => {
     const filterPosts = () => {
+      let filtered = boards;
+
+      // 필터 적용
       switch (filter) {
-        // filter 값으로
         case '자유':
         case '경기후기':
         case '선수후기':
-          setFilteredBoards(
-            boards.filter((board: Board) => board.subject === filter)
+          filtered = filtered.filter(
+            (board: Board) => board.subject === filter
           );
           break;
         case '전체':
         default:
-          setFilteredBoards(boards);
           break;
       }
+
+      // 검색 적용
+      if (search) {
+        const searchData = search.toLowerCase();
+        filtered = filtered.filter(
+          (board: Board) =>
+            board.title.toLowerCase().includes(searchData) ||
+            board.content.toLowerCase().includes(searchData) ||
+            board.team.toLowerCase().includes(searchData)
+        );
+      }
+
+      setFilteredBoards(filtered);
     };
 
     filterPosts();
-  }, [filter, boards]);
+  }, [filter, search, boards]);
 
   // 페이징
   const [currentPage, setCurrentPage] = useState(0);
