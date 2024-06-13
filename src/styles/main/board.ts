@@ -142,29 +142,35 @@ const ListContentContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 0 1rem;
-  justify-content: space-between;
+  /* justify-content: flex-start; */
   position: relative;
   border-bottom: 1px solid ${_Colors._Gray_4};
   a {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 100%;
     overflow: hidden;
     & > .subject {
-      border-radius: 0.5rem;
-      padding: 0.2rem 0.7rem;
-      background-color: ${_Colors._Gray_4};
+      /* background-color: pink; */
+      width: 5rem;
+      min-width: 5rem;
       span {
+        border-radius: 0.2rem;
+        padding: 0.2rem 0.5rem;
+        background-color: ${_Colors._Gray_4};
         color: ${_Colors._Gray_0};
       }
     }
     .groupTeam {
       /* background-color: pink; */
-      position: absolute;
-      left: 7rem;
+      /* position: absolute;
+      left: 7rem; */
+      width: 9rem;
+      min-width: 9rem;
       display: flex;
       justify-content: space-between;
+      margin-right: 1rem;
       span {
         background-color: ${_Colors._green};
         border-radius: 0.5rem;
@@ -176,8 +182,9 @@ const ListContentContainer = styled.div`
     .title {
       /* background-color: pink; */
       width: 15%;
-      position: absolute;
-      left: 18rem;
+      margin-right: 1rem;
+      /* position: absolute;
+      left: 18rem; */
       border-right: 0.2rem solid ${_Colors._Gray_4};
       overflow: hidden;
       text-overflow: ellipsis;
@@ -191,25 +198,32 @@ const ListContentContainer = styled.div`
         font-weight: 700;
       }
     }
-    .desc {
-      font-size: 1rem;
+    .subBox {
+      display: flex;
       /* background-color: red; */
-      width: 30%;
-      position: absolute;
-      left: 30rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 1;
-      white-space: normal;
-      line-height: 1.5;
-    }
-    .date {
-      p {
-        font-size: 0.9rem;
-        color: ${_Colors._Gray_4};
+      justify-content: space-between;
+      width: 100%;
+      .desc {
+        font-size: 1rem;
+        /* background-color: red; */
+        width: 60%;
+        /* position: absolute;
+      left: 30rem; */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        white-space: normal;
+        line-height: 1.5;
+      }
+      .date {
+        /* background-color: pink; */
+        p {
+          font-size: 0.9rem;
+          color: ${_Colors._Gray_4};
+        }
       }
     }
   }
