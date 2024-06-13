@@ -6,7 +6,7 @@ import useBoardStore from '../../../store/BoardStore';
 
 export default function BoardHeader() {
   const [modal, setModal] = useState<Boolean>(false);
-  const { setFilter } = useBoardStore();
+  const { filter, setFilter } = useBoardStore();
 
   const openModal = () => {
     setModal(true);
@@ -15,10 +15,10 @@ export default function BoardHeader() {
     setModal(false);
   };
 
-  const [checked, setChecked] = useState('전체');
+  // const [checked, setChecked] = useState('전체');
 
   const contentFilter = (value: string) => {
-    setChecked(value);
+    // setChecked(value);
     setFilter(value);
   };
 
@@ -29,7 +29,7 @@ export default function BoardHeader() {
           onClick={() => {
             contentFilter('전체');
           }}
-          className={checked === '전체' ? 'active' : 'default'}
+          className={filter === '전체' ? 'active' : 'default'}
         >
           전체
         </li>
@@ -37,7 +37,7 @@ export default function BoardHeader() {
           onClick={() => {
             contentFilter('자유');
           }}
-          className={checked === '자유' ? 'active' : 'default'}
+          className={filter === '자유' ? 'active' : 'default'}
         >
           자유
         </li>
@@ -45,7 +45,7 @@ export default function BoardHeader() {
           onClick={() => {
             contentFilter('경기후기');
           }}
-          className={checked === '경기후기' ? 'active' : 'default'}
+          className={filter === '경기후기' ? 'active' : 'default'}
         >
           경기후기
         </li>
@@ -53,7 +53,7 @@ export default function BoardHeader() {
           onClick={() => {
             contentFilter('선수후기');
           }}
-          className={checked === '선수후기' ? 'active' : 'default'}
+          className={filter === '선수후기' ? 'active' : 'default'}
         >
           선수후기
         </li>

@@ -70,7 +70,6 @@
       "date": "6/13 23:55",
       "liked": false
     },
-
     {
       "id": "afbe",
       "subject": "경기후기",
@@ -89,6 +88,16 @@
       "title": ";;",
       "content": ";;",
       "date": "6/14 1:3",
+      "liked": false
+    },
+    {
+      "id": "06c7",
+      "subject": "경기후기",
+      "group": "A조",
+      "team": "스코틀랜드",
+      "title": "test",
+      "content": "test",
+      "date": "6/14 2:27",
       "liked": false
     }
   ]

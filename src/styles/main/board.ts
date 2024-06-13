@@ -71,16 +71,13 @@ const BoardHeader = styled.div`
   }
 `;
 
-const SortConatiner = styled.div`
-  /* background-color: pink; */
+const ViewConatiner = styled.div`
   display: flex;
   justify-content: space-between;
   height: 5%;
   align-items: center;
   margin: 1rem 0;
-  div {
-    /* width: 5%; */
-    /* background-color: red; */
+  .ViewBox {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -88,14 +85,31 @@ const SortConatiner = styled.div`
     button {
       background: none;
       border: none;
-      color: 'black';
       display: flex;
       align-items: center;
-      span {
-        color: ${_Colors._Gray_5};
-        margin-left: 0.5rem;
+      width: 2rem;
+      height: 2rem;
+      justify-content: center;
+      .default {
+        fill: ${_Colors._Gray_5};
+      }
+      .active {
+        fill: ${_Colors._blue};
       }
     }
+  }
+  .oldest {
+    margin-right: 1rem !important;
+    font-weight: 700;
+    color: ${_Colors._blue};
+  }
+  .oldest:hover {
+    font-weight: 700;
+    color: ${_Colors._blue};
+  }
+  .latest {
+    margin-right: 1rem;
+    color: ${_Colors._Gray_6} !important;
   }
 `;
 
@@ -103,13 +117,13 @@ const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 0.5rem;
   height: 70%;
+  border-radius: 0.5rem;
   border: 1px solid ${_Colors._Gray_4};
   padding: 1rem 0;
 `;
 
-const ContentContainer = styled.div`
+const ListContentContainer = styled.div`
   /* background-color: pink; */
   margin: 0.5rem 0;
   height: 10%;
@@ -174,6 +188,81 @@ const ContentContainer = styled.div`
   }
 `;
 
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 1rem;
+  row-gap: 1rem;
+  height: 70%;
+  grid-auto-columns: 4;
+  grid-auto-rows: 1fr;
+`;
+
+const GirdContentContainer = styled.div`
+  /* background-color: blue; */
+  margin: 0.5rem 0;
+  height: 15rem;
+  max-height: 15rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid ${_Colors._Gray_4};
+  justify-content: space-between;
+  position: relative;
+  a {
+    /* background-color: pink; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    & > .subject {
+      border-radius: 0.5rem;
+      padding: 0.2rem 0.7rem;
+      background-color: ${_Colors._Gray_4};
+      span {
+        color: ${_Colors._Gray_0};
+      }
+    }
+
+    .title {
+      /* background-color: blue; */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      white-space: normal;
+      line-height: 1.5;
+      p {
+        font-weight: 700;
+      }
+    }
+    .desc {
+      /* background-color: red; */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      white-space: normal;
+      line-height: 1.5;
+    }
+    .date {
+      p {
+        font-size: 0.9rem;
+        color: ${_Colors._Gray_4};
+      }
+    }
+  }
+`;
+
 const PaginationContainer = styled.div`
   /* background-color: red; */
   display: flex;
@@ -212,8 +301,10 @@ export const BoardStyle = {
   Container,
   BoardHeader,
   InnerContainer,
-  SortConatiner,
+  ViewConatiner,
   ListContainer,
-  ContentContainer,
+  ListContentContainer,
   PaginationContainer,
+  GridContainer,
+  GirdContentContainer,
 };

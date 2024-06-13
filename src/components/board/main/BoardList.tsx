@@ -2,6 +2,8 @@ import { BoardStyle } from '../../../styles/main/board';
 
 import BoardContent from './BoardContent';
 
+import useBoardStore from '../../../store/BoardStore';
+
 interface Board {
   id: string;
   subject: string;
@@ -18,11 +20,20 @@ interface BoardListProps {
 }
 
 export default function BoardList({ currentPosts }: BoardListProps) {
-  return (
+  const { view } = useBoardStore();
+
+  // console.log('view', view);
+  return view ? (
     <BoardStyle.ListContainer>
       {currentPosts.map((board: Board) => (
         <BoardContent key={board.id} board={board} />
       ))}
     </BoardStyle.ListContainer>
+  ) : (
+    <BoardStyle.GridContainer>
+      {currentPosts.map((board: Board) => (
+        <BoardContent key={board.id} board={board} />
+      ))}
+    </BoardStyle.GridContainer>
   );
 }
