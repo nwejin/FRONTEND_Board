@@ -1,4 +1,4 @@
-import { ModalStyle } from '../../../../styles/modal';
+import { ModalStyle } from '../../../../styles/main/modal';
 
 export default function ModalContent() {
   return (

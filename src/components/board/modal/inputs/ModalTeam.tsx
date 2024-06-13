@@ -1,5 +1,5 @@
 import euroTeam from '../../../../data/euroTeam';
-import { ModalStyle } from '../../../../styles/modal';
+import { ModalStyle } from '../../../../styles/main/modal';
 import { useState, ChangeEvent } from 'react';
 
 export default function ModalTeam() {

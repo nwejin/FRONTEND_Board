@@ -1,12 +1,12 @@
-import { BoardStyle } from '../../../styles/board';
+import { BoardStyle } from '../../../styles/main/board';
 import { Link } from 'react-router-dom';
 
-export default function BoardContent() {
+export default function BoardContent({ test }: { test: number }) {
   return (
     <BoardStyle.ContentContainer>
       <Link to={`/1`}>
         <div className="subject">
-          <span>자유</span>
+          <span>{test}</span>
         </div>
         <div className="title">
           <p>제목</p>

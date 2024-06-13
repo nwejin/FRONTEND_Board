@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import Global from './styles/global';
+import Global from './styles/common/global';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
