@@ -15,6 +15,14 @@ interface BoardStore {
   // 필터
   filter: string;
   setFilter: (value: string) => void;
+
+  // 보기
+  view: boolean;
+  setView: (value: boolean) => void;
+
+  // 정렬
+  sort: boolean;
+  setSort: (value: boolean) => void;
 }
 
 const useBoardStore = create<BoardStore>((set) => ({
@@ -25,6 +33,8 @@ const useBoardStore = create<BoardStore>((set) => ({
   title: '',
   content: '',
   filter: '',
+  view: true,
+  sort: true,
 
   // 저장
   setSubject: (value: string) => set({ subject: value }),
@@ -33,6 +43,8 @@ const useBoardStore = create<BoardStore>((set) => ({
   setTitle: (value: string) => set({ title: value }),
   setContent: (value: string) => set({ content: value }),
   setFilter: (value: string) => set({ filter: value }),
+  setView: (value: boolean) => set({ view: value }),
+  setSort: (value: boolean) => set({ sort: value }),
 }));
 
 export default useBoardStore;

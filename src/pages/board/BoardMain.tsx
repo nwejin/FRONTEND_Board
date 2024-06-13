@@ -5,7 +5,7 @@ import axios from 'axios';
 
 // 컴포넌트
 import BoardHeader from '../../components/board/main/BoardHeader';
-import BoardSort from '../../components/board/main/BoardSort';
+import BoardView from '../../components/board/main/BoardView';
 import BoardList from '../../components/board/main/BoardList';
 import Pagination from '../../components/board/main/Pagination';
 import useBoardStore from '../../store/BoardStore';
@@ -22,12 +22,26 @@ interface Board {
 }
 
 export default function BoardMain() {
-  const { filter } = useBoardStore();
+  const { filter, sort } = useBoardStore();
 
-  console.log('filter > ', filter);
+  // console.log('filter > ', filter);
+  console.log('sort', sort);
   // 게시글 불러오기
-  const [boards, setBoards] = useState([]);
-  const [filteredBoards, setFilteredBoards] = useState([]);
+  const [boards, setBoards] = useState<Board[]>([]);
+  const [filteredBoards, setFilteredBoards] = useState<Board[]>([]);
+
+  // 정렬
+  const sortBoards = (boards: Board[], sort: boolean) => {
+    return boards.slice().sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      if (sort) {
+        return dateB.getTime() - dateA.getTime(); // 최신순
+      } else {
+        return dateA.getTime() - dateB.getTime(); // 오래된 순
+      }
+    });
+  };
 
   // 전체 게시글
   useEffect(() => {
@@ -35,13 +49,14 @@ export default function BoardMain() {
       try {
         const response = await axios.get('http://localhost:3001/boards');
         // console.log(response.data);
-        setBoards(response.data);
+        const sortedData = sortBoards(response.data, sort);
+        setBoards(sortedData);
       } catch (err) {
         console.log('데이터 불러오기 >', err);
       }
     };
     fetchData();
-  }, []);
+  }, [sort]);
 
   useEffect(() => {
     const filterPosts = () => {
@@ -85,7 +100,7 @@ export default function BoardMain() {
     <BoardStyle.Container>
       <BoardStyle.InnerContainer>
         <BoardHeader />
-        <BoardSort />
+        <BoardView />
         <BoardList currentPosts={currentPosts} />
         <Pagination
           pageCount={Math.ceil(filteredBoards.length / postsPerPage)}

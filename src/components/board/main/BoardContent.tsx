@@ -1,6 +1,8 @@
 import { BoardStyle } from '../../../styles/main/board';
 import { Link } from 'react-router-dom';
 
+import useBoardStore from '../../../store/BoardStore';
+
 interface Board {
   id: string;
   subject: string;
@@ -12,8 +14,10 @@ interface Board {
   liked: boolean;
 }
 export default function BoardContent({ board }: { board: Board }) {
-  return (
-    <BoardStyle.ContentContainer>
+  const { view } = useBoardStore();
+
+  return view ? (
+    <BoardStyle.ListContentContainer>
       <Link to={`/${board.id}`}>
         <div className="subject">
           <span>{board.subject}</span>
@@ -28,6 +32,23 @@ export default function BoardContent({ board }: { board: Board }) {
           <p>{board.date}</p>
         </div>
       </Link>
-    </BoardStyle.ContentContainer>
+    </BoardStyle.ListContentContainer>
+  ) : (
+    <BoardStyle.GirdContentContainer>
+      <Link to={`/${board.id}`}>
+        <div className="subject">
+          <span>{board.subject}</span>
+        </div>
+        <div className="title">
+          <p>{board.title}</p>
+        </div>
+        <div className="desc">
+          <p>{board.content}</p>
+        </div>
+        <div className="date">
+          <p>{board.date}</p>
+        </div>
+      </Link>
+    </BoardStyle.GirdContentContainer>
   );
 }
