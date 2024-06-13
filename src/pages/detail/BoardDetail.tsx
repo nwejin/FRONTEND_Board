@@ -24,6 +24,7 @@ interface Board {
   content: string;
   date: string;
   liked: boolean;
+  comments: { score: number; content: string }[];
 }
 
 export default function BoardDetail() {
@@ -53,7 +54,7 @@ export default function BoardDetail() {
     const patchData = async () => {
       try {
         await axios.patch(`http://localhost:3001/boards/${id}`, {
-          liked: isLiked,
+          liked: true,
         });
         console.log('좋아요 상태가 업데이트 되었습니다.');
       } catch (error) {
@@ -82,8 +83,8 @@ export default function BoardDetail() {
   const saveChanges = async () => {
     try {
       await axios.patch(`http://localhost:3001/boards/${id}`, {
-        title: editedTitle,
-        content: editedContent,
+        title: editedTitle || boards?.title,
+        content: editedContent || boards?.content,
       });
       alert('게시글이 수정되었습니다.');
       window.location.reload();
@@ -144,10 +145,13 @@ export default function BoardDetail() {
               <button
                 onClick={() => {
                   setisLiked(!isLiked);
-                  console.log(!isLiked);
+                  // console.log(!isLiked);
                 }}
               >
-                <FaHeart className={'default'} size={18} />
+                <FaHeart
+                  className={boards?.liked ? 'liked' : 'default'}
+                  size={18}
+                />
               </button>
               <button onClick={() => setIsEdit(!edit)}>
                 <MdEdit className={'default'} size={22} />

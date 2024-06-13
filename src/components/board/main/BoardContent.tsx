@@ -22,6 +22,10 @@ export default function BoardContent({ board }: { board: Board }) {
         <div className="subject">
           <span>{board.subject}</span>
         </div>
+        <div className="groupTeam">
+          <span>{board.group}</span>
+          <span>{board.team}</span>
+        </div>
         <div className="title">
           <p>{board.title}</p>
         </div>
@@ -36,8 +40,14 @@ export default function BoardContent({ board }: { board: Board }) {
   ) : (
     <BoardStyle.GirdContentContainer>
       <Link to={`/${board.id}`}>
-        <div className="subject">
-          <span>{board.subject}</span>
+        <div className="topBox">
+          <div className="subject">
+            <span>{board.subject}</span>
+          </div>
+          <div className="groupTeam">
+            <span>{board.group}</span>
+            <span>{board.team}</span>
+          </div>
         </div>
         <div className="title">
           <p>{board.title}</p>

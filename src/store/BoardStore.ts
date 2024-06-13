@@ -35,7 +35,7 @@ const useBoardStore = create<BoardStore>((set) => ({
   // 초기값
   subject: '',
   group: 'A조',
-  team: '',
+  team: '독일',
   title: '',
   content: '',
   filter: '',

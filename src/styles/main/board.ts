@@ -121,6 +121,17 @@ const ListContainer = styled.div`
   border-radius: 0.5rem;
   border: 1px solid ${_Colors._Gray_4};
   padding: 1rem 0;
+  position: relative;
+  .notFound {
+    /* background-color: pink; */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    .notFoundText {
+      color: ${_Colors._blue};
+      font-size: 1.2rem;
+    }
+  }
 `;
 
 const ListContentContainer = styled.div`
@@ -139,6 +150,7 @@ const ListContentContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    overflow: hidden;
     & > .subject {
       border-radius: 0.5rem;
       padding: 0.2rem 0.7rem;
@@ -147,11 +159,25 @@ const ListContentContainer = styled.div`
         color: ${_Colors._Gray_0};
       }
     }
+    .groupTeam {
+      /* background-color: pink; */
+      position: absolute;
+      left: 7rem;
+      display: flex;
+      justify-content: space-between;
+      span {
+        background-color: ${_Colors._green};
+        border-radius: 0.5rem;
+        color: ${_Colors._Gray_0};
+        padding: 0.2rem 0.5rem;
+        margin: 0 0.2rem;
+      }
+    }
     .title {
       /* background-color: pink; */
       width: 15%;
       position: absolute;
-      left: 15%;
+      left: 18rem;
       border-right: 0.2rem solid ${_Colors._Gray_4};
       overflow: hidden;
       text-overflow: ellipsis;
@@ -166,10 +192,11 @@ const ListContentContainer = styled.div`
       }
     }
     .desc {
+      font-size: 1rem;
       /* background-color: red; */
-      width: 50%;
+      width: 30%;
       position: absolute;
-      left: 35%;
+      left: 30rem;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -196,6 +223,17 @@ const GridContainer = styled.div`
   height: 70%;
   grid-auto-columns: 4;
   grid-auto-rows: 1fr;
+  .notFound {
+    /* background-color: pink; */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: calc(1rem + 1px);
+    .notFoundText {
+      color: ${_Colors._blue};
+      font-size: 1.2rem;
+    }
+  }
 `;
 
 const GirdContentContainer = styled.div`
@@ -220,7 +258,22 @@ const GirdContentContainer = styled.div`
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    & > .subject {
+    .topBox {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .groupTeam {
+      display: flex;
+      span {
+        background-color: ${_Colors._green};
+        border-radius: 0.5rem;
+        color: ${_Colors._Gray_0};
+        padding: 0.2rem 0.7rem;
+        margin: 0 0.2rem;
+      }
+    }
+    .subject {
       border-radius: 0.5rem;
       padding: 0.2rem 0.7rem;
       background-color: ${_Colors._Gray_4};
