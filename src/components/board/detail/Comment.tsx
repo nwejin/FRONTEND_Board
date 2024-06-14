@@ -29,9 +29,7 @@ export default function Comment({ id }: { id: string | undefined }) {
   useEffect(() => {
     const fetchBoard = async () => {
       try {
-        const response = await axios.get<Board>(
-          `http://localhost:3001/boards/${id}`
-        );
+        const response = await axios.get<Board>(`/api/${id}`);
         setComments(response.data.comments);
       } catch (error) {
         console.error('게시판 데이터 불러오기 실패:', error);
