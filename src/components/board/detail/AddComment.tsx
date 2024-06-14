@@ -23,13 +23,18 @@ export default function AddComment({ id }: { id: string | undefined }) {
         content: isComment,
       };
 
-      const response = await axios.get(`http://localhost:3001/boards/${id}`);
+      const response = await axios.get(
+        `https://frontend-board-jjk6.vercel.app//boards/${id}`
+      );
       const existingComments = response.data.comments || [];
 
       // console.log(commentData);
-      await axios.patch(`http://localhost:3001/boards/${id}`, {
-        comments: [...existingComments, commentData],
-      });
+      await axios.patch(
+        `https://frontend-board-jjk6.vercel.app//boards/${id}`,
+        {
+          comments: [...existingComments, commentData],
+        }
+      );
       console.log('댓글 업데이트 >', response.data);
       window.location.reload();
     } catch (err) {
