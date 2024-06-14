@@ -49,9 +49,7 @@ export default function BoardMain() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          'http://https://frontend-board-jjk6.vercel.app'
-        );
+        const response = await axios.get('http://localhost:3001/boards');
         // console.log(response.data);
         const sortedData = sortBoards(response.data, sort);
         setBoards(sortedData);
