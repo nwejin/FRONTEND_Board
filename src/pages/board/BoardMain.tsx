@@ -51,7 +51,10 @@ export default function BoardMain() {
       try {
         const response = await axios.get('/api/boards');
         // console.log(response.data);
-        const sortedData = sortBoards(response.data, sort);
+        // const sortedData = sortBoards(response.data, sort);
+        console.log(response.data); // 응답 데이터 확인
+        const data = Array.isArray(response.data) ? response.data : []; // 배열인지 확인
+        const sortedData = sortBoards(data, sort);
         setBoards(sortedData);
       } catch (err) {
         console.log('데이터 불러오기 >', err);
