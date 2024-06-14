@@ -30,7 +30,7 @@ export default function Comment({ id }: { id: string | undefined }) {
     const fetchBoard = async () => {
       try {
         const response = await axios.get<Board>(
-          `http://https://frontend-board-jjk6.vercel.app/${id}`
+          `http://localhost:3001/boards/${id}`
         );
         setComments(response.data.comments);
       } catch (error) {
