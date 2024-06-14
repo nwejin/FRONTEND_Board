@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/boards/:path*",
-      "destination": "/src/api/board.js"
-    }
-  ]
-}

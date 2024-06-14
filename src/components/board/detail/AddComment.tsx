@@ -23,7 +23,7 @@ export default function AddComment({ id }: { id: string | undefined }) {
         content: isComment,
       };
 
-      const response = await axios.get(`/api/boards/${id}`);
+      const response = await axios.get(`http://localhost:3001/boards/${id}`);
       const existingComments = response.data.comments || [];
 
       // console.log(commentData);
