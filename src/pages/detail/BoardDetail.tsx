@@ -40,9 +40,7 @@ export default function BoardDetail() {
   useEffect(() => {
     const getBoard = async () => {
       try {
-        const response = await axios.get(
-          `http://https://frontend-board-jjk6.vercel.app/${id}`
-        );
+        const response = await axios.get(`http://localhost:3001/boards/${id}`);
         console.log(response.data);
         setBoards(response.data);
         setIsLiked(response.data.liked);
@@ -55,7 +53,7 @@ export default function BoardDetail() {
 
   const toggleLike = async () => {
     try {
-      await axios.patch(`http://https://frontend-board-jjk6.vercel.app/${id}`, {
+      await axios.patch(`http://localhost:3001/boards/${id}`, {
         liked: !isLiked,
       });
       setBoardLiked(!boardLiked); // 좋아요
@@ -69,7 +67,7 @@ export default function BoardDetail() {
 
   const deleteBoard = async () => {
     try {
-      await axios.delete(`http://https://frontend-board-jjk6.vercel.app/${id}`);
+      await axios.delete(`http://localhost:3001/boards/${id}`);
       alert('게시글이 삭제되었습니다.');
       navigate('/');
     } catch (error) {
@@ -85,7 +83,7 @@ export default function BoardDetail() {
 
   const saveChanges = async () => {
     try {
-      await axios.patch(`http://https://frontend-board-jjk6.vercel.app/${id}`, {
+      await axios.patch(`http://localhost:3001/boards/${id}`, {
         title: editedTitle || boards?.title,
         content: editedContent || boards?.content,
       });
