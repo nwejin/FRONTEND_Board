@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/boards/:path*",
-      "destination": "/api/board.js"
+      "destination": "/src/api/board.js"
     }
   ]
 }
