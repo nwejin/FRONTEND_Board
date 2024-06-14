@@ -28,7 +28,7 @@ export default function ModalBtn({ isSubmit }: { isSubmit: boolean }) {
       comments: [],
     };
     try {
-      await axios.post('http://localhost:3001/boards', data, {
+      await axios.post('http://https://frontend-board-jjk6.vercel.app', data, {
         headers: {
           'Content-Type': 'application/json',
         },

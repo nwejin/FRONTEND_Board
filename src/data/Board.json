@@ -347,7 +347,7 @@
       "title": "이번 슬로건",
       "content": "Vereint im Herzen Europas. (유럽의 심장부에서 하나로 뭉치다)",
       "date": "6/14 13:02",
-      "liked": true,
+      "liked": false,
       "comments": []
     },
     {
@@ -666,6 +666,22 @@
       "date": "6/14 7:38",
       "liked": false,
       "comments": []
+    },
+    {
+      "id": "2028",
+      "subject": "경기후기",
+      "group": "A조",
+      "team": "독일",
+      "title": "대박",
+      "content": "이번 경기 대박이다",
+      "date": "6/14 8:38",
+      "liked": false,
+      "comments": [
+        {
+          "score": 5,
+          "content": "와"
+        }
+      ]
     }
   ]
 }
