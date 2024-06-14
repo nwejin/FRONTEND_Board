@@ -83,7 +83,7 @@ export default function BoardDetail() {
 
   const saveChanges = async () => {
     try {
-      await axios.patch(`/api/boards/${id}`, {
+      await axios.patch(`http://localhost:3001/boards/${id}`, {
         title: editedTitle || boards?.title,
         content: editedContent || boards?.content,
       });
