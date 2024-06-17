@@ -27,7 +27,7 @@ export default function AddComment({ id }: { id: string | undefined }) {
       const existingComments = response.data.comments || [];
 
       // console.log(commentData);
-      await axios.patch(`/api/${id}`, {
+      await axios.patch(`http://localhost:3001/boards/${id}`, {
         comments: [...existingComments, commentData],
       });
       console.log('댓글 업데이트 >', response.data);
