@@ -1,8 +1,5 @@
 ## 유로 2024 게시판
 
-배포주소 : https://frontend-board-jjk6.vercel.app/ (원활한 실행을 위해 clone 후 이용 부탁드립니다.)
-
-
 #### react와 json-server를 활용한 게시판입니다.
 
 주요 기능 1. 메인페이지에서 게시글 작성 / 검색 / 정렬 / 필터 / 보기 방식 변경이 가능합니다.
@@ -13,6 +10,7 @@
 
 프로젝트 관련 문의 사항은 chlwls4m@gmail.com으로 연락 바랍니다.
 
+배포주소 : https://frontend-board-jjk6.vercel.app/ (원활한 실행을 위해 clone 후 이용 부탁드립니다.)
 
 <br />
 
