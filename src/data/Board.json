@@ -347,7 +347,7 @@
       "title": "이번 슬로건",
       "content": "Vereint im Herzen Europas. (유럽의 심장부에서 하나로 뭉치다)",
       "date": "6/14 13:02",
-      "liked": false,
+      "liked": true,
       "comments": []
     },
     {
@@ -668,18 +668,26 @@
       "comments": []
     },
     {
-      "id": "2028",
+      "id": "3980",
       "subject": "경기후기",
-      "group": "A조",
-      "team": "독일",
-      "title": "대박",
-      "content": "이번 경기 대박이다",
-      "date": "6/14 8:38",
+      "group": "E조",
+      "team": "루마니아",
+      "title": "ㅋㅇㄴㄴ",
+      "content": "ㅋㄴㅇㅋㄴㅇ",
+      "date": "6/16 16:9",
       "liked": false,
       "comments": [
         {
+          "score": 3,
+          "content": "ㅋㅋ"
+        },
+        {
           "score": 5,
-          "content": "와"
+          "content": "ㅋㄴㅇㅁㅇ"
+        },
+        {
+          "score": 1,
+          "content": "ㅋㅋ"
         }
       ]
     }
