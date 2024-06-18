@@ -34,6 +34,9 @@
   <span>zustand</span>
   <span>json-server</span>
 </div>
+<br />
+<p>프론트엔드 배포: vercel <p/>
+<p>json-server 배포: glitch </p>
 
 <br />
 
