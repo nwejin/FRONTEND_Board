@@ -30,7 +30,7 @@ export default function Comment({ id }: { id: string | undefined }) {
     const fetchBoard = async () => {
       try {
         const response = await axios.get<Board>(
-          `http://localhost:3001/boards/${id}`
+          `https://tame-chill-parsley.glitch.me/boards/${id}`
         );
         setComments(response.data.comments);
       } catch (error) {

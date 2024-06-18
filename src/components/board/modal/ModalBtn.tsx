@@ -28,7 +28,7 @@ export default function ModalBtn({ isSubmit }: { isSubmit: boolean }) {
       comments: [],
     };
     try {
-      await axios.post('http://localhost:3001/boards', data, {
+      await axios.post('https://tame-chill-parsley.glitch.me/boards', data, {
         headers: {
           'Content-Type': 'application/json',
         },
