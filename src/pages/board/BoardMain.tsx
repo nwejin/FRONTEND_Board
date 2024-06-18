@@ -49,7 +49,9 @@ export default function BoardMain() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/boards');
+        const response = await axios.get(
+          'https://tame-chill-parsley.glitch.me/boards'
+        );
         // console.log(response.data);
         // const sortedData = sortBoards(response.data, sort);
         console.log(response.data); // 응답 데이터 확인
